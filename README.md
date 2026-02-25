@@ -1,6 +1,6 @@
 # 🚀 BestCareerSpot MERN
 
-![BestCareerSpot Banner](./assets/banner.png)
+
 
 > A production-grade full-stack blog platform built with Node.js, Express, MongoDB, and EJS — designed to demonstrate real-world full-stack engineering practices.  
 Live deployment with support for custom domains.
@@ -50,31 +50,45 @@ The platform includes secure authentication, an admin dashboard for managing con
 ---
 ## 📂 Project Structure
 
+```bash
 bestcareerspot-mern/
 │
 ├── models/
-│ ├── User.js
-│ └── Blog.js
+│   ├── User.js
+│   └── Blog.js
 │
 ├── routes/
-│ ├── authRoutes.js
-│ ├── blogRoutes.js
-│ └── adminRoutes.js
+│   ├── authRoutes.js
+│   ├── blogRoutes.js
+│   └── adminRoutes.js
 │
 ├── middleware/
-│ └── authMiddleware.js
+│   └── authMiddleware.js
 │
 ├── views/
-│ └── pages/
+│   └── pages/
 │
 ├── public/
-│ └── css/
+│   └── css/
 │
 ├── server.js
 └── package.json
 
+
+### 📦 Folder Overview
+
+| Folder/File | Purpose |
+|------------|----------|
+| models/ | Mongoose schemas for database collections |
+| routes/ | Application routing logic |
+| middleware/ | Authentication & role protection logic |
+| views/ | EJS templates (server-rendered UI) |
+| public/ | Static assets (CSS, JS) |
+| server.js | Main Express server entry point |
+
 ---
 
+```
 ## 🛠️ Local Setup
 
 ### 1️⃣ Clone Repository

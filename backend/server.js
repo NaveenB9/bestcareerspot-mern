@@ -11,6 +11,8 @@ const app = express();
 const PORT = process.env.PORT || 5001;
 connectDB();
 
+app.use(express.json());
+
 app.use("/api/posts", blogRoutes);
 
 

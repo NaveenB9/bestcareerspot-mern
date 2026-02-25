@@ -1,6 +1,8 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
-const blogSchema = new mongoose.Schema({
+const Schema = mongoose.Schema;
+
+export const blogSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true
@@ -9,15 +11,8 @@ const blogSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  author: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-  tags: [{ type: String }],
-  stats: {
-    likes: { type: Number, default: 0 },
-    comments: { type: Number, default: 0 }
-  }
-}, { timestamps: true });
+  author: { type: String, required: true },
 
-// Indexing for real-time search and sorting
-blogPostSchema.index({ createdAt: -1 });
+},
+{ timestamps: true });
 
-module.exports = mongoose.model("Blog", blogSchema);

@@ -1,7 +1,5 @@
-import mongoose from "mongoose";
-import { blogSchema } from "../models/Blog.js";
+import Blog from "../models/Blog.js";
 
-const Blog = mongoose.model("Blog", blogSchema);
 
 export async function getAllPosts(_, res) {
   try {
@@ -13,16 +11,23 @@ export async function getAllPosts(_, res) {
   }
 }
 
+
 export async function getPostById(req, res) {
   try {
-    const post = await Blog.findById(req.params.id); // -1 will sort in desc. order (newest first)
+    // Validate ID format before querying
+    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+      return res.status(404).json({ message: "Post not found" });
+    }
+
+    const post = await Blog.findById(req.params.id);
     if (!post) return res.status(404).json({ message: "Post not found!" });
     res.status(200).json(post);
   } catch (error) {
-    console.error("Error in getPostById controller", error);
+    console.error("Error", error);
     res.status(500).json({ message: "Internal server error" });
   }
 }
+
 
 export async function createPost(req, res){
   try {
@@ -70,8 +75,3 @@ export async function deletePost(req, res) {
   }
 }
 
-
-export default
-{
-  blogSchema
-};

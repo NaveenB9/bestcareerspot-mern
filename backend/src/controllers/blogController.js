@@ -1,5 +1,5 @@
 import Blog from "../models/Blog.js";
-
+import mongoose from "mongoose";
 
 export async function getAllPosts(_, res) {
   try {
